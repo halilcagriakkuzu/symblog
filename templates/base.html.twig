@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+
+	<body>
+		<div class="container-fluid m-0 p-0">
+			<div class="row mb-3 m-0 p-0">
+				<div class="col m-0 p-0">
+					<div class="alert alert-dark text-center">
+						A simple dark alert—check it out!
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-3">
+					<div id="profile" class="row justify-content-center mb-3">
+						<div class="col-8 text-center">
+							<img src="https://loremflickr.com/512/512" class="img-fluid rounded-circle mb-3" alt="profile image">
+							<h1 class="fs-5 mb-1">Halil Çağrı AKKUZU</h1>
+							<h1 class="fs-6 fst-italic text-muted fw-lighter">Software Developer</h1>
+						</div>
+					</div>
+
+					<div class="card text-center">
+						<div class="card-body">
+							{% for i in 0..9 %}
+								<a href="{{ path("postsByTag", {"tag": "macos"}) }}" class="btn btn-primary btn-sm m-1">Docker</a>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="card text-center mt-4">
+						<div class="card-body">
+							<div class="d-grid gap-2">
+								<a href="{{ path("home") }}" class="btn btn-primary" type="button">Anasayfa</a>
+								<a class="btn btn-primary" type="button">CV</a>
+								<a class="btn btn-primary" type="button">Portfolio</a>
+								<a class="btn btn-secondary" type="button">İletişime Geç</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-9"> {% block body %}{% endblock %}
+					</div>
+				</div>
+			</div>
+
+			<div class="container-fluid m-0 p-0">
+				<div class="row m-0 p-0">
+					<div class="col m-0 p-0">
+						<div class="alert alert-dark text-center mb-0">
+							A simple dark alert—check it out!
+						</div>
+					</div>
+				</div>
+			</div>
+		</body>
+	</html>
